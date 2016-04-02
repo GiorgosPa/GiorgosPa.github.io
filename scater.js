@@ -8,6 +8,8 @@ app.controller("scaterController", ["$scope", function($scope){
             });
         });
     }
+
+    load_scater('scater_plot/scater_plot_data.csv');
 }]);
 
 // var margin = {top: 20, right: 20, bottom: 30, left: 40},
