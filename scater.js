@@ -4,11 +4,12 @@ app.controller("scaterController", ["$scope", function($scope){
     function load_scater(file_name) {
         d3.csv(file_name, function (dataset) {
             dataset.forEach(function (d) {
-                console.log(d);
+                d.crimes = parseInt(d.crimes);
+
             });
         });
-        load_scater('scater_plot/scater_plot_data.csv');
     }
+    load_scater('scater_plot/scater_plot_data.csv');
 }]);
 
 // var margin = {top: 20, right: 20, bottom: 30, left: 40},
