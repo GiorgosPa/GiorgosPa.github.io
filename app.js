@@ -8,7 +8,8 @@ app.directive("aDirective", function() {
 
 app.directive("bDirective", function() {
     return {
-        templateUrl: 'b.html'
+        templateUrl: 'b.html',
+        controller: 'scaterController'
     };
 });
 
