@@ -194,8 +194,10 @@ app.controller("barchartController", ["$scope", function($scope){
             .on("click", function () {
                 if (filename === "barchart/output0.csv") {
                     filename = "barchart/output1.csv";
+                    d3.select("#hist-title")[0][0].innerText = "Crimes in San Francisco's Tenderloin district during 2015";
                 } else {
                     filename = "barchart/output0.csv";
+                    d3.select("#hist-title")[0][0].innerText = "Crimes in San Francisco's Mission district during 2015";
                 }
                 upd_hist(filename);
             });
