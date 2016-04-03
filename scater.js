@@ -43,8 +43,8 @@ app.controller("scaterController", ["$scope", '$timeout', function($scope, $time
                   .style("opacity", .9);
                 $scope.tooltip.html(d.district + "<br/> prostitutions:" + xValue(d)
                   + "<br/> vehicle thefts:" + yValue(d) + "")
-                  .style("left", (d3.event.pageX - 200) + "px")
-                  .style("top", (d3.event.pageY - 128) + "px");
+                  .style("left", (d3.event.pageX - 50) + "px")
+                  .style("top", (d3.event.pageY + 20) + "px");
               })
               .on("mouseout", function(d) {
                 $scope.tooltip.transition()
@@ -161,8 +161,8 @@ app.controller("scaterController", ["$scope", '$timeout', function($scope, $time
                   .style("opacity", 1);
                 $scope.tooltip.html(d.district + "<br/> prostitutions:" + xValue(d)
                   + "<br/> vehicle thefts:" + yValue(d) + "")
-                  .style("left", (d3.event.pageX - 200) + "px")
-                  .style("top", (d3.event.pageY - 128) + "px");
+                  .style("left", (d3.event.pageX - 50) + "px")
+                  .style("top", (d3.event.pageY + 20) + "px");
               })
               .on("mouseout", function(d) {
                 $scope.tooltip.transition()
