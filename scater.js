@@ -2,7 +2,7 @@ app = angular.module('app');
 
 app.controller("scaterController", ["$scope", '$timeout', function($scope, $timeout){
     var totalprostitutions, totalvehicles;
-    var margin = {top: 20, right: 100, bottom: 30, left: 80}
+    var margin = {top: 20, right: 40, bottom: 30, left: 80}
     var width = 1000 - margin.left - margin.right;
     var height = 500 - margin.top - margin.bottom;
 
@@ -159,7 +159,7 @@ app.controller("scaterController", ["$scope", '$timeout', function($scope, $time
               .on("mouseover", function(d) {
                 $scope.tooltip.transition()
                   .duration(200)
-                  .style("opacity", .9);
+                  .style("opacity", 1);
                 $scope.tooltip.html(d.district + "<br/> prostitutions:" + xValue(d)
                   + "<br/> vehicle thefts:" + yValue(d) + "")
                   .style("left", (d3.event.pageX - 200) + "px")
@@ -176,7 +176,7 @@ app.controller("scaterController", ["$scope", '$timeout', function($scope, $time
               .data(color.domain())
               .enter().append("g")
               .attr("class", "legend")
-              .attr("transform", function(d, i) { return "translate(100," + (220 + i * 20) + ")"; });
+              .attr("transform", function(d, i) { return "translate(0," + (150 + i * 20) + ")"; });
 
             // draw legend colored rectangles
             legend.append("rect")

@@ -1,13 +1,18 @@
 <h2>One scatter plot and two datasets</h2>
-<div class="title">Crimes per district in San Francisco</div>
-<br/>
-<div class="buttons"><button id="y2003" class=disabled disabled ng-click=update(2003)>2003</button><button id="y2015" class=active ng-click=update(2015)>2015</button></div>
+<div class=title-wraper><span class="buttons"><button id="y2003" class=disabled disabled ng-click=update(2003)>2003</button><button id="y2015" class=active ng-click=update(2015)>2015</button></span><span class=title>Crimes per district in San Francisco</span></div>
 <div id="scater"></div>
 <style>
     circle{
         opacity: 1;
     }
-
+    .title-wraper{
+        padding-right: 100px;
+        padding-left: 100px;
+        margin-bottom: 10px;
+    }
+    .title{
+        float: right;
+    }
     .active{
         background-image: none;
         background-repeat: none;
@@ -42,6 +47,7 @@
         border:none;
         width: fit-content;
         box-shadow: 2px 2px 5px 0px;
+        display: inline-block;
     }
 
     .axis path, .axis line {
