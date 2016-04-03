@@ -1,1 +1,65 @@
-<h2>One scatter plot and two datasets</h2>
+<h2>Assignment 2B: One scatter plot and two datasets</h2>
+<div class=title-wraper><span class="buttons"><button id="y2003" class=disabled disabled ng-click=update(2003)>2003</button><button id="y2015" class=active ng-click=update(2015)>2015</button></span><span class=title>Crimes per district in San Francisco</span></div>
+<div id="scater"></div>
+<style>
+    circle{
+        opacity: 1;
+    }
+    .title-wraper{
+        padding-right: 100px;
+        padding-left: 100px;
+        margin-bottom: 10px;
+    }
+    .title{
+        float: right;
+    }
+    .active{
+        background-image: none;
+        background-repeat: none;
+        background-color: lightgrey;
+
+        border:none;
+
+        border-right: 1px solid black;
+    }
+
+    .tooltip {
+      position: absolute;
+      width: auto;
+      height: auto;
+      pointer-events: none;
+      background-color: white;
+      box-shadow: 1px 1px 5px 0px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    button{
+        background-image: -webkit-linear-gradient(top,#5cb85c 0,#419641 100%);
+        background-image: -o-linear-gradient(top,#5cb85c 0,#419641 100%);
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#419641));
+        background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);
+        background-repeat: repeat-x;
+        border-color: #3e8f3e;
+        border:none;
+        color: black !important;
+        border-right: 1px solid black;
+    }
+    .buttons{
+        margin: auto;
+        border:none;
+        width: fit-content;
+        box-shadow: 2px 2px 5px 0px;
+        display: inline-block;
+    }
+
+    .axis path, .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .dot {
+      stroke: #000;
+    }
+</style>

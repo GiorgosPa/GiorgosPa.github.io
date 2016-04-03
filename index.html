@@ -3,28 +3,14 @@
 <head>
   <meta charset="utf-8">
   <title>Assignment 2</title>
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
   <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-aria/angular-aria.js"></script>
-  <script src="bower_components/angular-material/angular-material.js"></script>
   <script type="text/javascript" src="bower_components/d3/d3.js"></script>
   <script src="app.js"></script>
   <script src="barchart.js"></script>
+  <script src="scater.js"></script>
+  <script src="clustering.js"></script>
   <style>
-  .tabsdemoDynamicHeight md-content {
-    background-color: transparent !important;
-  }
-  .tabsdemoDynamicHeight md-content md-tabs {
-    background: #f6f6f6;
-    border: 1px solid #e1e1e1;
-  }
-  .tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
-    background: white;
-  }
-  .tabsdemoDynamicHeight md-content h1:first-child {
-    margin-top: 0;
-  }
+
   .content{
     padding:10%;
     padding-top: 20px;
@@ -34,7 +20,9 @@
     background-color: #F0F1F1;
   }
   .tabs{
-    box-shadow: 3px 3px 10px 0px;
+    box-shadow: 1px 1px 10px 0px;
+    background-color: white;
+    padding: 40px;
   }
   </style>
 </head>
@@ -42,31 +30,11 @@
 
   <div class=content>
     <h1>Assignment 2</h1>
-    <div ng-cloak>
-      <md-content class=tabs >
-        <md-tabs md-dynamic-height md-border-bottom>
-          <md-tab label="Assignimnet 2A">
-            <md-content class="md-padding">
-              <a-directive>
-            </md-content>
-          </md-tab>
-          <md-tab label="Assignimnet 2B">
-            <md-content class="md-padding">
-              <b-directive>
-            </md-content>
-          </md-tab>
-          <md-tab label="Assignimnet 2C">
-            <md-content class="md-padding">
-              <c-directive>
-            </md-content>
-          </md-tab>
-          <md-tab label="Assignimnet 2D">
-            <md-content class="md-padding">
-              <d-directive>
-            </md-content>
-          </md-tab>
-        </md-tabs>
-      </md-content>
+    <div class=tabs >
+      <a-directive></a-directive>
+      <b-directive></b-directive>
+      <c-directive></c-directive>
+      <d-directive></d-directive>
     </div>
   </div>
 

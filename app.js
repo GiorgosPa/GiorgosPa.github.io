@@ -1,4 +1,4 @@
-app = angular.module('app', ['ngMaterial']);
+app = angular.module('app', []);
 
 app.directive("aDirective", function() {
     return {
@@ -8,7 +8,8 @@ app.directive("aDirective", function() {
 
 app.directive("bDirective", function() {
     return {
-        templateUrl: 'b.html'
+        templateUrl: 'b.html',
+        controller: 'scaterController'
     };
 });
 
@@ -21,6 +22,7 @@ app.directive("cDirective", function() {
 
 app.directive("dDirective", function() {
     return {
-        templateUrl: 'd.html'
+        templateUrl: 'd.html',
+        controller: 'clusteringController'
     };
 });
