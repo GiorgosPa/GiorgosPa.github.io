@@ -7,6 +7,7 @@ app.controller("barchartController", ["$scope", function($scope){
     var top_space = 20;
     var bottom_space = 130;
     var left_space = 50;
+    var filename;
 
     function sortElem(elem) {
 //                elem
@@ -15,6 +16,19 @@ app.controller("barchartController", ["$scope", function($scope){
 //                        return d3.ascending(a.category, b.category);
 //                    });
 
+    };
+
+    $scope.toggle= function(district){
+        if (district === "Tenderloin") {
+            filename = "barchart/output1.csv";
+            d3.select('#tenderloin').attr('disabled', true).attr("class","");
+            d3.select('#mission').attr('disabled', null).attr("class","active");
+        } else {
+            filename = "barchart/output0.csv";
+            d3.select('#mission').attr('disabled', true).attr("class","");
+            d3.select('#tenderloin').attr('disabled', null).attr("class","active");
+        }
+        upd_hist(filename);
     };
 
     function init_hist(rect, xScale, yScale, hScale) {
@@ -190,15 +204,4 @@ app.controller("barchartController", ["$scope", function($scope){
     //Width and height
     var filename = "barchart/output0.csv";
     load_hist(filename);
-    d3.select("button")
-            .on("click", function () {
-                if (filename === "barchart/output0.csv") {
-                    filename = "barchart/output1.csv";
-                    d3.select("#hist-title")[0][0].innerText = "Crimes in San Francisco's Tenderloin district during 2015";
-                } else {
-                    filename = "barchart/output0.csv";
-                    d3.select("#hist-title")[0][0].innerText = "Crimes in San Francisco's Mission district during 2015";
-                }
-                upd_hist(filename);
-            });
 }]);

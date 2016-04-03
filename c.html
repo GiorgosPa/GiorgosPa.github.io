@@ -1,9 +1,11 @@
-<style>#hist-title{
+<style>
+  .title{
     text-align: center;
     margin: auto;
 }
 </style>
 <h2>One barchart and (at least) two datasets</h2>
-<div id="hist-title">Crimes in San Francisco's Mission district during 2015</div>
+<div class="title">Crimes in San Francisco during 2015</div>
+<br/>
+<div class="buttons"><button id="mission" class=disabled disabled ng-click=toggle("Mission")>Mission district</button><button id="tenderloin" class=active ng-click=toggle("Tenderloin")>Tenderloin district</button></div>
 <div id="hist"></div>
-<button>toggle</button>
