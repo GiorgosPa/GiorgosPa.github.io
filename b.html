@@ -1,12 +1,19 @@
 <h2>One scatter plot and two datasets</h2>
+<div class="title">Crimes per district in San Francisco</div>
+<br/>
+<div class="buttons"><button id="y2003" class=disabled disabled ng-click=update(2003)>2003</button><button id="y2015" class=active ng-click=update(2015)>2015</button></div>
 <div id="scater"></div>
 <style>
     circle{
-        opacity: 0.7;
+        opacity: 1;
     }
 
-    circle:hover{
-        opacity: 1;
+    .active{
+        background-image: none;
+        background-repeat: none;
+        background-color: lightgrey;
+
+        border:none;
     }
 
     .tooltip {
@@ -18,5 +25,32 @@
       box-shadow: 1px 1px 5px 0px;
       padding: 10px;
       text-align: center;
+    }
+
+    button{
+        background-image: -webkit-linear-gradient(top,#5cb85c 0,#419641 100%);
+        background-image: -o-linear-gradient(top,#5cb85c 0,#419641 100%);
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#419641));
+        background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);
+        background-repeat: repeat-x;
+        border-color: #3e8f3e;
+        border:none;
+        color: black !important;
+    }
+    .buttons{
+        margin: auto;
+        border:none;
+        width: fit-content;
+        box-shadow: 2px 2px 5px 0px;
+    }
+
+    .axis path, .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .dot {
+      stroke: #000;
     }
 </style>
