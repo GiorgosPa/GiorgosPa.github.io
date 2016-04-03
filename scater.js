@@ -31,7 +31,6 @@ app.controller("scaterController", ["$scope", '$timeout', function($scope, $time
 
     function show_data(){
         $timeout(function(){
-             console.log('timeout');
             var circle = $scope.svg.selectAll(".dot");
             circle.data($scope.dataset)
               .attr("r", radius)
