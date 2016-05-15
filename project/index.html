@@ -2,16 +2,17 @@
 <html lang="en" ng-app="app">
 <head>
   <meta charset="utf-8">
-  <title>Assignment 2</title>
+  <title>Project</title>
   <script type="text/javascript" src="../bower_components/d3/d3.js"></script>
   <style>
 
   .content{
     box-shadow: 1px 1px 10px 0px;
     background-color: white;
-    padding: 40px;
+    padding: 60px;
     padding-top: 10px;
-    margin: 40px;
+    margin: 100px;
+    margin-top: -5px;
   }
   body{
     background-color: #F0F1F1;
@@ -55,11 +56,24 @@
     background-color: #FFFF00;
   }
 
+  body{
+    margin: 0;
+  }
+
+  .banner{
+    width:100%;
+  }
+
   </style>
 </head>
 <body>
+  <img class="banner" src="ny.jpg"/>
 
   <div class=content>
+    <div class="introduction">
+      <h2>Introduction</h2>
+      <p>This website present an analysis on the new york open data set on <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions">motor vehicle collisions</a>. General statistics of the dataset as well as machine learning methods are presented bellow. In more detail we present the distribution of the accidents over month and their evolution through time, an analysis of the most dangerous intersections, a predictor of the most dangerous locations according to the car you drive and the current time and a cluster analysis of the accidents location.</p>
+    </div>
     <div class="intersections">
       <h2>Top 100 most dangerous intersections in New York</h2>
       <div id="vis">
