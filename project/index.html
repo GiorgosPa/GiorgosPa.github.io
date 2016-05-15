@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <title>Assignment 2</title>
+  <script type="text/javascript" src="../bower_components/d3/d3.js"></script>
+  <style>
+
+  .content{
+    box-shadow: 1px 1px 10px 0px;
+    background-color: white;
+    padding: 40px;
+    padding-top: 10px;
+    margin: 40px;
+  }
+  body{
+    background-color: #F0F1F1;
+  }
+
+  .tooltip{
+    position: absolute;
+    width: 300px;
+    background-color: white;
+  }
+
+  #bronx{
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    background-color: #00FFFF;
+  }
+
+  #brooklyn{
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    background-color: #d84b2a;
+  }
+
+  #manhattan{
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    background-color: #7aa25c;
+  }
+
+  #queens{
+    display: inline-block;
+    height: 15px;
+    width: 20px;
+    background-color: #FFFF00;
+  }
+
+  </style>
+</head>
+<body>
+
+  <div class=content>
+    <div class="intersections">
+      <h2>Top 100 most dangerous intersections</h2>
+      <div id="vis">
+        <div id="legend">
+          <div id="bronx"></div> Bronx <br/>
+          <div id="brooklyn"></div> Brooklyn <br/>
+          <div id="manhattan"></div> Manhattan <br/>
+          <div id="queens"></div> Queens
+        </div>
+      </div>
+      <script type="text/javascript" src="bubbles.js"></script>
+    </div>
+  </div>
+
+</body>
+</html>
