@@ -1,5 +1,22 @@
+var coordCenter = [-73.98, 40.74]
+function loader(){
+	d3.selectAll('#map svg')
+	 .append("foreignObject")
+     .attr("width", 100)
+     .attr("height", 100)
+	 .attr("id","loader")
+	 .attr("transform", "translate("+knn_projection(coordCenter)[0]+","+knn_projection(coordCenter)[1]+")")
+     .append("xhtml:div")
+     .style("color", "aliceblue")
+     .html('Loading data...');
+}
+
+function removeLoader(){
+	d3.selectAll('#map svg').selectAll("#loader").remove();
+}; 
+
 var knn_projection = d3.geo.mercator()
-				   .center([-73.98, 40.74])
+				   .center(coordCenter)
 				   .scale([60000])
 				   ;
 
@@ -18,7 +35,6 @@ var knn_projection = d3.geo.mercator()
 
     var path = d3.geo.path()
                  .projection(knn_projection);
-
     d3.json(geojson, function(json) {
         features = json.features;
         features.forEach(function(d){
@@ -27,6 +43,7 @@ var knn_projection = d3.geo.mercator()
            .attr("d", path(d))
 		   .style("fill", knn_backgroundColor );;
         });
+	loader();
 
     setTimeout(function() {
         d3.csv('allcenters.csv', function(data){
@@ -49,6 +66,7 @@ var knn_projection = d3.geo.mercator()
                    .style("opacity", .6);
             });
             knn_updateClusters(4);
+			removeLoader();
         });
     }, 100);
 
@@ -65,15 +83,13 @@ function knn_addPoints(k){
 			d.style.fill = knn_colors[parseInt(d.attributes['k'+k].value)];
 		});
 		d3.csv('centers'+k+'.csv', function(centroids){
+			
 			centroids.forEach(function(d, i){
-                  d.Longitude = +d.Longitude;
-                  d.Latitude = +d.Latitude;
-				  x = knn_projection([d.Longitude, d.Latitude])[0]
-				  y = knn_projection([d.Longitude, d.Latitude])[1]
                   var group = d3.selectAll('#map svg')
+				   .data(centroids)
 				   .append("g")
                    .attr("class", "center")
-				   .attr("transform", "translate("+x+","+y+")");
+				   .attr("transform", "translate("+knn_projection([d.Longitude, d.Latitude])[0]+","+knn_projection([d.Longitude, d.Latitude])[1]+")");
 				  group.append("circle")
                    .attr("r", 10)
                    .style("fill", knn_colors[i])
@@ -83,6 +99,7 @@ function knn_addPoints(k){
 				   .style("fill", knn_textColor)
 				   .text(d.count+" Accidents");
                 });
+			
 		});
         
     }

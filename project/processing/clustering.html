@@ -5,16 +5,15 @@
 <script type="text/javascript" src="scripts/d3/d3.js"></script>
 </head>
 <body>
-<h2>Assignment 2D: Visualizing geodata</h2>
-<div class=title-wraper><span class="buttons"><button id="k3" class=active onclick=knn_updateClusters(3)>K=3</button><button id="k4" class=active onclick=knn_updateClusters(4)>K=4</button><button id="k5" class=active onclick=knn_updateClusters(5) >K=5</button></span><span class=title>Car Accidents in NYC</span></div>
+<h2>Clusters of traffic accidents in New york</h2>
+<div class=title-wraper>
+	<span class="buttons">
+	<button id="k3" class=active onclick=knn_updateClusters(3)>K=3</button>
+	<button id="k4" class=active onclick=knn_updateClusters(4)>K=4</button>
+	<button id="k5" class=active onclick=knn_updateClusters(5)>K=5</button>
+	</span>
 <div style="background-color: #4B5367; width: 1000px;" id="map"></div>
-<style type="text/css">
-    path {
-        fill: lightblue;
-        stroke: black;
-    }
-</style>
-<p>The size of the CSV file is important in order to maintain loading times bounded to an acceptable value for the user. As the CSV file created contains many points ( 15 000 ) , it has to contain only the data necessary for the plots. In addition, the file has to be downloaded from the server before D3 can process it, increasing the total latency even more.</p>
+<p>Appliying Kmeans-clustering to our dataset we found 4 different representative areas, this graph shows this areas and the amount of accidents in each</p>
 
 <script src="clustering.js"></script>
 </body>
