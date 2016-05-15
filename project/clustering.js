@@ -1,31 +1,32 @@
-var coordCenter = [-73.98, 40.74]
+
+(function(){
+
+  var coordCenter = [-73.98, 40.74]
 function loader(){
-	d3.selectAll('#map svg')
-	 .append("foreignObject")
+  d3.selectAll('#map svg')
+   .append("foreignObject")
      .attr("width", 100)
      .attr("height", 100)
-	 .attr("id","loader")
-	 .attr("transform", "translate("+knn_projection(coordCenter)[0]+","+knn_projection(coordCenter)[1]+")")
+   .attr("id","loader")
+   .attr("transform", "translate("+knn_projection(coordCenter)[0]+","+knn_projection(coordCenter)[1]+")")
      .append("xhtml:div")
      .style("color", "aliceblue")
      .html('Loading data...');
 }
 
 function removeLoader(){
-	d3.selectAll('#map svg').selectAll("#loader").remove();
-}; 
+  d3.selectAll('#map svg').selectAll("#loader").remove();
+};
 
 var knn_projection = d3.geo.mercator()
-				   .center(coordCenter)
-				   .scale([60000])
-				   ;
-
-(function(){
+           .center(coordCenter)
+           .scale([60000])
+           ;
     var margin = {top: 20, right: 40, bottom: 30, left: 80}
     var width = 1000 - margin.left - margin.right;
     var height = 600 - margin.top - margin.bottom;
     var geojson = 'https://raw.githubusercontent.com/dwillis/nyc-maps/master/boroughs.geojson';
-	
+
 
     d3.select("#map").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -46,7 +47,7 @@ var knn_projection = d3.geo.mercator()
 	loader();
 
     setTimeout(function() {
-        d3.csv('allcenters.csv', function(data){
+        d3.csv('processing/allcenters.csv', function(data){
             data.forEach(function(d){
                 d.Longitude = +d.Longitude;
                 d.Latitude = +d.Latitude;
@@ -77,13 +78,13 @@ var knn_colors = ["#E29253", "#A4973F", "#649452", "#2F8870", "#317582"];
 var knn_backgroundColor = "#263948";
 var knn_textColor = "#ECFF85";
 function knn_addPoints(k){
-			
+
         d3.selectAll('.center').style('display', 'none');
 		d3.selectAll('.kmeans')[0].forEach(function(d){
 			d.style.fill = knn_colors[parseInt(d.attributes['k'+k].value)];
 		});
-		d3.csv('centers'+k+'.csv', function(centroids){
-			
+		d3.csv('processing/centers'+k+'.csv', function(centroids){
+
 			centroids.forEach(function(d, i){
                   var group = d3.selectAll('#map svg')
 				   .data(centroids)
@@ -99,9 +100,9 @@ function knn_addPoints(k){
 				   .style("fill", knn_textColor)
 				   .text(d.count+" Accidents");
                 });
-			
+
 		});
-        
+
     }
 
 	knn_k = 4;

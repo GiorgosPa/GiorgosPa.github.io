@@ -17,6 +17,10 @@
     background-color: #F0F1F1;
   }
 
+  #legend{
+    position: absolute;
+  }
+
   .tooltip{
     position: absolute;
     width: 300px;
@@ -57,7 +61,7 @@
 
   <div class=content>
     <div class="intersections">
-      <h2>Top 100 most dangerous intersections</h2>
+      <h2>Top 100 most dangerous intersections in New York</h2>
       <div id="vis">
         <div id="legend">
           <div id="bronx"></div> Bronx <br/>
@@ -67,7 +71,19 @@
         </div>
       </div>
       <script type="text/javascript" src="bubbles.js"></script>
+      <p>The most dangerous intersection is Tillary Street and Flatbush Avenue extension in Brooklyn with a total of 585 accidents. Most of the accidents occur in Manhattan, followed by Brooklyn, Bronx and Queens. </p>
     </div>
+    <h2>Clusters of traffic accidents in New york</h2>
+    <div class=title-wraper>
+      <span class="buttons">
+      <button id="k3" class=active onclick=knn_updateClusters(3)>K=3</button>
+      <button id="k4" class=active onclick=knn_updateClusters(4)>K=4</button>
+      <button id="k5" class=active onclick=knn_updateClusters(5)>K=5</button>
+      </span>
+    <div style="background-color: #4B5367; width: 1000px;" id="map"></div>
+    <p>Appliying Kmeans-clustering to our dataset we found 4 different representative areas, this graph shows this areas and the amount of accidents in each</p>
+
+    <script src="clustering.js"></script>
   </div>
 
 </body>
