@@ -69,6 +69,11 @@
       <h2>Introduction</h2>
       <p>This website present an analysis on the new york open data set on <a href="https://data.cityofnewyork.us/Public-Safety/NYPD-Motor-Vehicle-Collisions/h9gi-nx95">motor vehicle collisions</a>. General statistics of the dataset as well as machine learning methods are presented bellow. In more detail we present the distribution of the accidents over month and their evolution through time, an analysis of the most dangerous intersections, a predictor of the most dangerous locations according to the car you drive and the current time and a cluster analysis of the accidents location.</p>
     </div>
+    <div class="statistics">
+      <h2>Basic statistics</h2>
+      <img style="margin: auto; display:block;" src="histogram_months.png" width="800px">
+      <img style="margin: auto; display:block;" src="histogram_month_year.png" width="800px">
+    </div>
     <div class="intersections">
       <h2>Top 100 most dangerous intersections in New York</h2>
       <div id="vis">
@@ -96,7 +101,14 @@
     <p>Appliying Kmeans-clustering to our dataset we found 4 different representative areas, this graph shows this areas and the amount of accidents in each</p>
 
     <script src="clustering.js"></script>
+    <div class="trees">
+      <h2>Dangerous areas</h2>
+      <p>A decision tree classifier was trained to determine the dangerous location for a given vehicle on a given time. For example bellow are shown the dangerous areas for a taxi driving at 15:00 and for a truck driving at 17:00.</p>
+      <img style="margin: auto; display:block;" src="taxi.png" width="800px">
+      <p style="margin: auto; display:block; font-size:13px; text-align: center;">Dangerous areas for a taxi driving at 15:00</p>
+      <img style="margin: auto; display:block;" src="truck.png" width="800px">
+      <p style="margin: auto; display:block; font-size:13px; text-align: center;">Dangerous areas for a truck driving at 17:00</p>
+    </div>
   </div>
-
 </body>
 </html>
