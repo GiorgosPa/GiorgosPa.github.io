@@ -316,10 +316,26 @@ function bubbleChart() {
    *
    * displayName is expected to be a string and either 'year' or 'all'.
    */
-  chart.toggleDisplay = function () {
-    groupBubbles();
+  chart.accidents = function () {
+    bubbles = svg.selectAll('.bubble');
+    bubbles.transition()
+      .duration(2000)
+      .attr('r', function (d) { return d.radius; });
   };
 
+  chart.killed = function(){
+    bubbles = svg.selectAll('.bubble');
+    bubbles.transition()
+      .duration(2000)
+      .attr('r', function (d) { return d.killed * 5; });
+  };
+
+  chart.injured = function(){
+    bubbles = svg.selectAll('.bubble');
+    bubbles.transition()
+      .duration(2000)
+      .attr('r', function (d) { return d.injured / 5; });
+  };
 
   // return the chart function from closure.
   return chart;
@@ -340,6 +356,9 @@ function display(data) {
   myBubbleChart('#vis', data);
 }
 
+d3.select('#accidents').on('click', myBubbleChart.accidents);
+d3.select('#killed').on('click', myBubbleChart.killed);
+d3.select('#injured').on('click', myBubbleChart.injured);
 /*
  * Helper function to convert a number into a string
  * and add commas to it to improve presentation.
@@ -365,7 +384,5 @@ d3.csv('processing/intersections.txt', function(dataset){
     d.injured = +d.injured;
   });
   display(dataset);
-});
-
-//myBubbleChart.toggleDisplay();
+  });
 }());
