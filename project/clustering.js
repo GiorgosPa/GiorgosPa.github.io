@@ -1,7 +1,4 @@
-
-(function(){
-
-  var coordCenter = [-73.98, 40.74]
+var coordCenter = [-73.98, 40.74]
 function loader(){
   d3.selectAll('#map svg')
    .append("foreignObject")
@@ -72,7 +69,6 @@ var knn_projection = d3.geo.mercator()
     }, 100);
 
     });
-}());
 
 var knn_colors = ["#E29253", "#A4973F", "#649452", "#2F8870", "#317582"];
 var knn_backgroundColor = "#263948";
